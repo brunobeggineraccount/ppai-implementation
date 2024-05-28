@@ -1,0 +1,212 @@
+{
+    "vinos": {
+        "Malbec": {
+            "aniada": 2018,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenMalbec.jpg",
+            "nombre": "Malbec",
+            "notaDeCataBodega": "Notas de frutas rojas y negras, con un toque de vainilla y chocolate.",
+            "precioARS": 850
+        },
+        "CabernetSauvignon": {
+            "aniada": 2019,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenCabernetSauvignon.jpg",
+            "nombre": "Cabernet Sauvignon",
+            "notaDeCataBodega": "Sabores de grosella negra y cereza, con un final de pimienta negra.",
+            "precioARS": 950
+        },
+        "Torrontes": {
+            "aniada": 2020,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenTorrontes.jpg",
+            "nombre": "Torrontés ",
+            "notaDeCataBodega": "Aromas florales con un toque de cítricos y melocotón.",
+            "precioARS": 800
+        },
+        "Syrah": {
+            "aniada": 2017,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenSyrah.jpg",
+            "nombre": "Syrah",
+            "notaDeCataBodega": "Sabores de frutas oscuras y especias, con un toque de pimienta negra.",
+            "precioARS": 900
+        },
+        "Bonarda": {
+            "aniada": 2019,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenBonarda.jpg",
+            "nombre": "Bonarda",
+            "notaDeCataBodega": "Notas de cereza y ciruela, con un final de vainilla y roble.",
+            "precioARS": 950
+        },
+        "Chardonnay": {
+            "aniada": 2021,
+            "fechaActualizacion": "23-05-2024",
+            "imagenEtiqueta": "imagenChardonnay.jpg",
+            "nombre": "Chardonnay",
+            "notaDeCataBodega": "Aromas de manzana y pera, con un toque de cítricos y vainilla.",
+            "precioARS": 850
+        }
+    },
+    "bodegas": {
+        "Norton": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega fundada en 1895, conocida por sus vinos Malbec de alta calidad.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada por Edmund James Palmer Norton, un ingeniero inglés.",
+            "nombre": "Bodega Norton",
+            "periodoActualizacion": "Anual"
+        },
+        "LuigiBosca": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega familiar con más de 100 años de historia en la producción de vinos finos.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada en 1901 por Don Leoncio Arizu.",
+            "nombre": "Bodega Luigi Bosca",
+            "periodoActualizacion": "Anual"
+        },
+        "CatenaZapata": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega pionera en la producción de vinos de alta gama en Argentina.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada en 1902 por Nicola Catena.",
+            "nombre": "Bodega Catena Zapata",
+            "periodoActualizacion": "Anual"
+        },
+        "Trapiche": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega fundada en 1883, reconocida por su amplia gama de vinos de alta calidad.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada por Tiburcio Benegas en Mendoza.",
+            "nombre": "Bodega Trapiche",
+            "periodoActualizacion": "Anual"
+        },
+        "Salentein": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega moderna conocida por su arquitectura impresionante y sus vinos de alta gama.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada en 1992 en el Valle de Uco, Mendoza.",
+            "nombre": "Bodega Salentein",
+            "periodoActualizacion": "Anual"
+        },
+        "Zuccardi": {
+            "coordenadasUbicacion": "-32.9675, -68.8469",
+            "descripcion": "Bodega familiar que ha estado produciendo vinos de alta calidad desde 1963.",
+            "fechaUltimaActualizacion": "23-05-2024",
+            "historia": "Fundada por Alberto Zuccardi en Mendoza.",
+            "nombre": "Bodega Zuccardi",
+            "periodoActualizacion": "Anual"
+        }
+    },
+    "maridaje": {
+        "Asado": {
+            "descripcion": "El asado argentino, una parrillada de carnes variadas, se marida bien con un Malbec robusto.",
+            "nombre": "Asado"
+        },
+        "Empanadas": {
+            "descripcion": "Las empanadas, especialmente las de carne, se maridan bien con un Cabernet Sauvignon.",
+            "nombre": "Empanadas"
+        },
+        "Pizza": {
+            "descripcion": "La pizza argentina, con su masa gruesa y queso abundante, se marida bien con un Syrah.",
+            "nombre": "Pizza"
+        },
+        "Pasta": {
+            "descripcion": "La pasta con salsa de tomate se marida bien con un Malbec suave.",
+            "nombre": "Pasta"
+        },
+        "Pescado": {
+            "descripcion": "El pescado a la parrilla, especialmente el salmón, se marida bien con un Chardonnay.",
+            "nombre": "Pescado"
+        },
+        "Queso": {
+            "descripcion": "El queso azul se marida bien con un Cabernet Sauvignon.",
+            "nombre": "Queso"
+        }
+    },
+    "tipoUvas": {
+        "Malbec": {
+            "descripcion": "Uva tinta que produce vinos de cuerpo medio a completo con sabores de ciruela y cereza negra.",
+            "nombre": "Malbec"
+        },
+        "CabernetSauvignon": {
+            "descripcion": "Uva tinta que produce vinos de cuerpo completo con sabores de grosella negra.",
+            "nombre": "Cabernet Sauvignon"
+        },
+        "Torrontes": {
+            "descripcion": "Uva blanca autóctona de Argentina que produce vinos aromáticos con notas florales y cítricas.",
+            "nombre": "Torrontés"
+        },
+        "Syrah": {
+            "descripcion": "Uva tinta que produce vinos de cuerpo medio a completo con sabores de frutas oscuras y especias.",
+            "nombre": "Syrah"
+        },
+        "Bonarda": {
+            "descripcion": "Uva tinta que produce vinos de cuerpo medio con sabores de cereza y ciruela.",
+            "nombre": "Bonarda"
+        },
+        "Chardonnay": {
+            "descripcion": "Uva blanca que produce vinos de cuerpo medio a completo con sabores de manzana y pera.",
+            "nombre": "Chardonnay"
+        }
+    },
+    "varietales": {
+        "MalbecMendoza": {
+            "descripcion": "Variedad de Malbec cultivada en la región de Mendoza, conocida por su cuerpo completo y sabores frutales.",
+            "porcentajeComposicion": 85
+        },
+        "CabernetSauvignonSanJuan": {
+            "descripcion": "Variedad de Cabernet Sauvignon cultivada en la región de San Juan, conocida por su cuerpo completo y sabores de grosella negra.",
+            "porcentajeComposicion": 90
+        },
+        "TorrontesSalta": {
+            "descripcion": "Variedad de Torrontés cultivada en la región de Salta, conocida por sus aromas florales y sabores cítricos.",
+            "porcentajeComposicion": 95
+        },
+        "SyrahSanJuan": {
+            "descripcion": "Variedad de Syrah cultivada en la región de San Juan, conocida por su cuerpo completo y sabores de frutas oscuras y especias.",
+            "porcentajeComposicion": 90
+        },
+        "BonardaMendoza": {
+            "descripcion": "Variedad de Bonarda cultivada en la región de Mendoza, conocida por su cuerpo medio y sabores de cereza y ciruela.",
+            "porcentajeComposicion": 85
+        },
+        "ChardonnaySalta": {
+            "descripcion": "Variedad de Chardonnay cultivada en la región de Salta, conocida por sus sabores de manzana y pera.",
+            "porcentajeComposicion": 95
+        }
+    },
+    "enofilos": {
+        "Enofilo1": {
+            "apellido": "Perez",
+            "nombre": "Juan",
+            "imagenPerfil": "imagenJuanPerez.jpg"
+        },
+        "Enofilo2": {
+            "apellido": "Gomez",
+            "nombre": "Maria",
+            "imagenPerfil": "imagenMariaGomez.jpg"
+        },
+        "Enofilo3": {
+            "apellido": "Rodriguez",
+            "nombre": "Carlos",
+            "imagenPerfil": "imagenCarlosRodriguez.jpg"
+        },
+        "Enofilo4": {
+            "apellido": "Lopez",
+            "nombre": "Ana",
+            "imagenPerfil": "imagenAnaLopez.jpg"
+        },
+        "Enofilo5": {
+            "apellido": "Martinez",
+            "nombre": "Pedro",
+            "imagenPerfil": "imagenPedroMartinez.jpg"
+        },
+        "Enofilo6": {
+            "apellido": "Gonzalez",
+            "nombre": "Laura",
+            "imagenPerfil": "imagenLauraGonzalez.jpg"
+        }
+    }
+}

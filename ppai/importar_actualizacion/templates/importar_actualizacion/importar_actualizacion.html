@@ -1,0 +1,14 @@
+{% extends "importar_actualizacion/base.html" %}
+{% block content %}
+<div class="flex-container" style="max-width: 80%; margin: auto">
+<form method="post">
+    {% csrf_token %}
+    <select class="form-select" name="bodega_elegida">
+    {% for bodega in bodegas_para_actualizar %}
+        <option>{{ bodega }}</option>
+    {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary" style="margin-top: 3px">Actualizar</button>
+</form>
+</div>
+{% endblock %}
