@@ -1,0 +1,73 @@
+body {
+    background: url('./fondo-bonvino.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+}
+
+.custom-button {
+    background-color: #D6B59D;
+    padding: 30px;
+    box-shadow: none;
+    border-style: none;
+    outline: none;
+    border-radius: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24px;
+    transition: transform 0.1s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background-color: #AD4634;
+    border-color: #AD4634;
+    color: #000000;
+}
+
+.custom-button:hover {
+    transform: scale(1.1);
+    background-color: #AD4634;
+    border-color: #AD4634;
+}
+
+.pie_pagina {
+    background-color: #4B1B1B;
+    padding: 10px;
+    min-height: 30%;
+}
+
+.contenido_pie {
+    color: #D6B59D;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.titulo_header{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #D6B59D;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.cabecera {
+    background-color: #4B1B1B;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+
+.funcionamiento {
+    color: #D6B59D;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    background-color: #4B1B1B;
+    bottom: 0;
+}

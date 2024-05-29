@@ -14,12 +14,14 @@ class BodegaModel(models.Model):
 
 class VinoModel(models.Model):
     aniada = models.CharField(max_length=255)
-    fecha_actualizacion = models.DateField(max_length=255)
+    fecha_actualizacion = models.DateField()
     imagen_etiqueta = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
     nota_cata_bodega = models.CharField(max_length=255)
     precio_ars = models.IntegerField()
     bodega = models.ForeignKey('BodegaModel', on_delete=models.CASCADE, null=True, blank=True)
+    maridaje = models.ForeignKey('MaridajeModel', on_delete=models.CASCADE, null=True, blank=True)
+    varietal = models.ForeignKey('VarietalModel', on_delete=models.CASCADE, null=True, blank=True)
 
 
 class EnofiloModel(models.Model):
@@ -35,7 +37,8 @@ class MaridajeModel(models.Model):
 
 class VarietalModel(models.Model):
     descripcion = models.TextField()
-    porcentaje_composicion = models.IntegerField()
+    porcentaje_composicion = models.CharField(max_length=255)
+    tipo_uva = models.ForeignKey('TipoUvaModel', on_delete=models.CASCADE, null=True, blank=True)
 
 
 class TipoUvaModel(models.Model):

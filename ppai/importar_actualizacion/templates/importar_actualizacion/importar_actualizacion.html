@@ -1,6 +1,9 @@
-{% extends "importar_actualizacion/base.html" %}
+{% extends "importar_actualizacion/base-v2.html" %}
 {% block content %}
-<div class="flex-container" style="max-width: 80%; margin: auto">
+<div class="flex-container">
+{% if bodegas_para_actualizar == 0 %}
+    <h4 style="color: white">No hay bodegas para actualizar</h4>
+{% else %}
 <form method="post">
     {% csrf_token %}
     <select class="form-select" name="bodega_elegida">
@@ -8,7 +11,8 @@
         <option>{{ bodega }}</option>
     {% endfor %}
     </select>
-    <button type="submit" class="btn btn-primary" style="margin-top: 3px">Actualizar</button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; padding: 1rem; padding-left: 2rem; padding-right: 2rem">Actualizar</button>
 </form>
 </div>
+{% endif %}
 {% endblock %}
