@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = 'Save data to database sqlite'
 
     def handle(self, *args, **options):
-        with open(os.path.join(BASE_DIR, 'vinos.json'), 'r') as f:
+        with open(os.path.join(BASE_DIR, 'vinosv2.json'), 'r') as f:
             json_data_base = json.load(f)
 
             for key, vino in json_data_base["vinos"].items():

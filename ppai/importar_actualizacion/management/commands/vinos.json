@@ -158,7 +158,7 @@
         "MalbecMendoza": {
             "descripcion": "Variedad de Malbec cultivada en la región de Mendoza, conocida por su cuerpo completo y sabores frutales.",
             "porcentajeComposicion": 85,
-    EJEMPLO        "tipoUva": {"descripcion": "Uva blanca que produce vinos de cuerpo medio a completo con sabores de manzana y pera.",
+            "tipoUva": {"descripcion": "Uva blanca que produce vinos de cuerpo medio a completo con sabores de manzana y pera.",
             "nombre": "Chardonnay"}
         },
         "CabernetSauvignonSanJuan": {

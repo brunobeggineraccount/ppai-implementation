@@ -2,7 +2,8 @@
 {% block content %}
 <div class="container">
     {% if error %}
-    <h4 class="h4" style="color: #D6B59D">ha habido un error con el sistema de bodegas</h4>
+    <h4 class="h4" style="color: #D6B59D">ha habido un error con el sistema de bodegas, <br> intenta de nuevo en unos minutos...</h4>
+        <button class="custom-button" onclick="window.location.href='{% url "index" %}'" style="padding: 1.5rem; font-size: 1.5rem; margin-top: 1rem">volver a la pagina principal</button>
     {% else %}
     {% if actualizados == 0 %}
         <h4 class="h4" style="color: #D6B59D">no hay vinos actualizados</h4>
@@ -26,7 +27,7 @@
                 <td>{{ vino.nombre }}</td>
                 <td>{{ vino.precio_ars }}</td>
                 <td>{{ vino.nota_cata_bodega }}</td>
-                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.maridaje.nombre }}</td>
                 <td>{{ vino.varietal.tipo_uva.nombre }}</td>
                 </tr>
             {% endfor %}
@@ -55,7 +56,7 @@
                 <td>{{ vino.nombre }}</td>
                 <td>{{ vino.precio_ars }}</td>
                 <td>{{ vino.nota_cata_bodega }}</td>
-                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.maridaje.nombre }}</td>
                 <td>{{ vino.varietal.tipo_uva.nombre }}</td>
                 </tr>
             {% endfor %}

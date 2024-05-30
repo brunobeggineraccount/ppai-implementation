@@ -187,34 +187,50 @@ class GestorImportadorBodega:
     @staticmethod
     def obtener_actualizacion_vinos_bodega():
         return {
-                "1": {
-                    "maridaje": "Queso",
-                    "tipoUva": "Bonarda",
-                    "aniada": 2010,
-                    "fechaActualizacion": "23-01-2024",
-                    "imagenEtiqueta": "imageTrumpeter.jpg",
-                    "nombre": "Chardonnay",
-                    "notaDeCataBodega": "actualizo bien",
-                    "precioARS": 1101010,
-                    "varietal": {
-                        "descripcion": "Descripcion varietal",
-                        "porcentaje_composicion": "73%"
-                    }
-                },
-                "2": {
-                    "maridaje": "Asado",
-                    "tipoUva": "Malbec",
-                    "aniada": 2010,
-                    "fechaActualizacion": "23-01-2024",
-                    "imagenEtiqueta": "imageTrumpeter.jpg",
-                    "nombre": "NATTTTTTTT",
-                    "notaDeCataBodega": "efoiweljfweñlf",
-                    "precioARS": 1010,
-                    "varietal": {
-                        "descripcion": "FACU",
-                        "porcentaje_composicion": "73%"
-                    }
+            "1": {
+                "maridaje": "Asado",
+                "tipoUva": "Bonarda",
+                "aniada": 2010,
+                "fechaActualizacion": "23-01-2024",
+                "imagenEtiqueta": "imageTrumpeter.jpg",
+                "nombre": "Chardonnay",
+                "notaDeCataBodega": "Presenta un color rojo profundo con matices violáceos. La claridad y brillo \
+                    del vino destacan en la copa, indicando su juventud y frescura.",
+                "precioARS": 1101010,
+                "varietal": {
+                    "descripcion": "Descripcion varietal",
+                    "porcentaje_composicion": "73%"
+                }
+            },
+            "2": {
+                "maridaje": "Queso",
+                "tipoUva": "Malbec",
+                "aniada": 2010,
+                "fechaActualizacion": "23-01-2024",
+                "imagenEtiqueta": "imageTrumpeter.jpg",
+                "nombre": "Trumpeter",
+                "notaDeCataBodega": "Presenta un color rojo profundo con matices violáceos. La claridad y brillo \
+                    del vino destacan en la copa, indicando su juventud y frescura.",
+                "precioARS": 1010,
+                "varietal": {
+                    "descripcion": "malbec",
+                    "porcentaje_composicion": "73%"
+                }
+            },
+            "3": {
+                "maridaje": "Carnes Rojas",
+                "tipoUva": "Malbec",
+                "aniada": 2012,
+                "fechaActualizacion": "15-02-2024",
+                "imagenEtiqueta": "imageCatena.jpg",
+                "nombre": "Catena zapata",
+                "notaDeCataBodega": "Se presenta con un intenso color púrpura y aromas de frutas rojas maduras,\
+                 como cerezas y ciruelas, acompañados por sutiles notas de vainilla y especias.",
+                "precioARS": 2000,
+                "varietal": {
+                    "descripcion": "malbec",
+                    "porcentaje_composicion": "85%"
                 }
             }
+        }
 # return 400
-
