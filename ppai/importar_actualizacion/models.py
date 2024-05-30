@@ -48,4 +48,6 @@ class TipoUvaModel(models.Model):
 
 class SiguiendoModel(models.Model):
     fecha_inicio = models.DateField()
-    fecha_fin = models.DateField()
+    fecha_fin = models.DateField(blank=True, null=True)
+    bodega = models.ForeignKey('BodegaModel', on_delete=models.CASCADE, blank=True, null=True)
+    enofilo = models.ForeignKey('EnofiloModel', on_delete=models.CASCADE, blank=True, null=True)

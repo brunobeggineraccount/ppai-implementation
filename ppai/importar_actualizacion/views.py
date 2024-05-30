@@ -42,24 +42,38 @@ def importar_actualizacion(request):
         id_vinos = gestor.actualizar_o_crear_vinos(vinos_clasificados)
 
         request.session["contexto"] = id_vinos
-
+        request.session["bodega"] = {"bodega": gestor.bodega_elegida.nombre}
         gestor.bodega_elegida.set_fecha_ultima_actualizacion()
 
         return redirect(reverse('tomar-seleccion'))
 
 
-def tomar_seleccion_bodega(request):
+def resumen(request):
     if request.method == "GET":
         context = request.session.get('contexto')
-        creados = []
-        actualizados = []
+        bodega_elegida = request.session.get("bodega")["bodega"]
+
+        creados, actualizados = [], []
         for vino_id in context["creados"]:
             creados.append(VinoModel.objects.get(id=vino_id))
         for vino_id in context["actualizados"]:
             actualizados.append(VinoModel.objects.get(id=vino_id))
+
         context = {"creados": creados, "actualizados": actualizados}
+        if not context["creados"]:
+            context["creados"] = 0
+        if not context["actualizados"]:
+            context["actualizados"] = 0
+
+        gestor = GestorImportadorBodega()
+        gestor.bodega_elegida = bodega_elegida
+        gestor.buscar_seguidores_bodega()
+        context["seguidores"] = gestor.enofilos_seguidores_bodega
+        if not context["seguidores"]:
+            context["seguidores"] = 0
+
         return render(request,
-                      template_name='./importar_actualizacion/tomar_seleccion_bodega.html',
+                      template_name='./importar_actualizacion/resumen.html',
                       context=context)
 
     if request.method == "POST":

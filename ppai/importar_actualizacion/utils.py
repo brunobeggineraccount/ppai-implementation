@@ -119,6 +119,8 @@ class GestorImportadorBodega:
         return self.bodega_elegida.actualizar_datos_vino(datos_vino_act)
 
     def crear_vino(self, vino_a_crear):
+        # buscamos y obtenemos maridaje, tipo de uva y bodega de la base de datos para guardarlos a la hora de crear
+        # el vino, el cual tiene foreign key a esos modelos
         maridaje_db = self.buscar_maridaje(vino_a_crear.maridaje)
         tipo_uva_db = self.buscar_tipo_uva(vino_a_crear.tipo_uva)
         bodega_db = BodegaModel.objects.get(nombre=self.bodega_elegida.nombre)
@@ -148,7 +150,17 @@ class GestorImportadorBodega:
         return None
 
     def buscar_seguidores_bodega(self):
-        ...
+        enofilo_db_list = EnofiloModel.objects.all()
+        self.enofilos_seguidores_bodega = []
+        for enofilo_db in enofilo_db_list:
+            enofilo_obj = Enofilo(
+                apellido=enofilo_db.apellido,
+                nombre=enofilo_db.nombre,
+                imagen_perfil=enofilo_db.imagen_perfil,
+                enofilo_db=enofilo_db
+            )
+            if enofilo_obj.seguis_a_bodega(self.bodega_elegida):
+                self.enofilos_seguidores_bodega.append(enofilo_db)
 
     def fin_caso_uso(self):
         ...
@@ -173,9 +185,9 @@ class GestorImportadorBodega:
                 "aniada": 2010,
                 "fechaActualizacion": "23-01-2024",
                 "imagenEtiqueta": "imageTrumpeter.jpg",
-                "nombre": "Alejandro",
-                "notaDeCataBodega": "TP PPAI",
-                "precioARS": 0,
+                "nombre": "Chardonnay",
+                "notaDeCataBodega": "actualizo bien",
+                "precioARS": 5000,
                 "varietal": {
                     "descripcion": "Descripcion varietal",
                     "porcentaje_composicion": "73%"
@@ -187,9 +199,9 @@ class GestorImportadorBodega:
                 "aniada": 2010,
                 "fechaActualizacion": "23-01-2024",
                 "imagenEtiqueta": "imageTrumpeter.jpg",
-                "nombre": "Hola como andas",
+                "nombre": "LEOMESSI",
                 "notaDeCataBodega": "efoiweljfweñlf",
-                "precioARS": 0,
+                "precioARS": 10101019229921,
                 "varietal": {
                     "descripcion": "Nico",
                     "porcentaje_composicion": "73%"
@@ -271,6 +283,7 @@ class Vino:
         self.varietal = varietal
 
     def new(self, tipo_uva, maridaje, bodega):
+        # creamos varietal enviandole por parametro el tipo de uva
         varietal_db = self.crear_varietal(tipo_uva)
         vino_result = VinoModel.objects.get_or_create(
             aniada=self.añada,
@@ -318,16 +331,26 @@ class Vino:
 
 
 class Enofilo:
-    def __init__(self, apellido, imagen_perfil, nombre):
+    def __init__(self, apellido, imagen_perfil, nombre, enofilo_db=None):
         self.apellido = apellido
         self.imagen_perfil = imagen_perfil
         self.nombre = nombre
+        self.enofilo_db = enofilo_db
 
     def get_nombre_usuario(self):
         ...
 
-    def seguis_a_bodega(self):
-        ...
+    def seguis_a_bodega(self, bodega_elegida):
+        siguiendos_db_list = SiguiendoModel.objects.filter(enofilo=self.enofilo_db)
+        for siguiendo_db in siguiendos_db_list:
+            siguiendo_obj = Siguiendo(
+                fecha_inicio=siguiendo_db.fecha_inicio,
+                fecha_fin=siguiendo_db.fecha_fin,
+                bodega=siguiendo_db.bodega
+            )
+            if siguiendo_obj.sos_de_bodega(bodega_elegida):
+                return True
+        return False
 
 
 class Maridaje:
@@ -349,6 +372,7 @@ class Varietal:
         self.tipo_uva = tipo_uva
 
     def new(self):
+        # guardamos el varietal creado en la base de datos
         varietal = VarietalModel.objects.get_or_create(
             descripcion=self.descripcion,
             porcentaje_composicion=self.porcentaje_composicion,
@@ -369,6 +393,14 @@ class TipoUva:
 
 
 class Siguiendo:
-    def __init__(self, fecha_inicio, fecha_fin=None):
+    def __init__(self, fecha_inicio=None, fecha_fin=None, bodega=None, enofilo=None):
         self.fecha_inicio = fecha_inicio
         self.fecha_fin = fecha_fin
+        self.bodega = bodega
+        self.enofilo = enofilo
+
+    def sos_de_bodega(self, bodega_elegida):
+        if self.bodega.nombre == bodega_elegida:
+            return True
+        return False
+        # if self.enofilo

@@ -1,5 +1,6 @@
-{% extends "importar_actualizacion/base-v2.html" %}
+{% extends "importar_actualizacion/base.html" %}
 {% block content %}
+<div class="container" style="max-width: 70%">
 <div class="flex-container">
 {% if bodegas_para_actualizar == 0 %}
     <h4 style="color: white">No hay bodegas para actualizar</h4>
@@ -11,7 +12,8 @@
         <option>{{ bodega }}</option>
     {% endfor %}
     </select>
-    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; padding: 1rem; padding-left: 2rem; padding-right: 2rem">Actualizar</button>
+
+    <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'" style="margin-top: 0.5rem; padding: 1rem; font-size: 1.2rem">actualizar bodega</button>
 </form>
 </div>
 {% endif %}

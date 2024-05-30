@@ -46,7 +46,10 @@
             "imagenEtiqueta": "imagenChardonnay.jpg",
             "nombre": "Chardonnay",
             "notaDeCataBodega": "Aromas de manzana y pera, con un toque de cítricos y vainilla.",
-            "precioARS": 850
+            "precioARS": 850,
+            "bodega": "NombreBodega",
+            "varietal": "NombreVarietal",
+            "maridaje": "NombreMaridaje"
         }
     },
     "bodegas": {
@@ -154,7 +157,9 @@
     "varietales": {
         "MalbecMendoza": {
             "descripcion": "Variedad de Malbec cultivada en la región de Mendoza, conocida por su cuerpo completo y sabores frutales.",
-            "porcentajeComposicion": 85
+            "porcentajeComposicion": 85,
+    EJEMPLO        "tipoUva": {"descripcion": "Uva blanca que produce vinos de cuerpo medio a completo con sabores de manzana y pera.",
+            "nombre": "Chardonnay"}
         },
         "CabernetSauvignonSanJuan": {
             "descripcion": "Variedad de Cabernet Sauvignon cultivada en la región de San Juan, conocida por su cuerpo completo y sabores de grosella negra.",

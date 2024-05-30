@@ -1,0 +1,71 @@
+{% extends "importar_actualizacion/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="mb-4" style="margin: 3rem">
+        <h4 class="h4" style="color: #D6B59D">vinos actualizados</h4>
+    {% if actualizados == 0 %}
+        <h5 class="h6" style="color: #D6B59D">no hay vinos actualizados</h5>
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Nota Cata</th>
+                <th scope="col">Maridaje</th>
+                <th scope="col">Tipo Uva</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vino in actualizados %}
+                <tr>
+                <td>{{ vino.nombre }}</td>
+                <td>{{ vino.precio_ars }}</td>
+                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.varietal.tipo_uva.nombre }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+    </div>
+    <div class="mb-4" style="margin: 3rem">
+        <h4 class="h4" style="color: #D6B59D">vinos creados</h4>
+        {% if creados == 0 %}
+        <h5 class="h6" style="color: #D6B59D">no hay vinos creados</h5>
+        {% else %}
+            <table class="table table-striped ">
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Nota Cata</th>
+                <th scope="col">Maridaje</th>
+                <th scope="col">Tipo Uva</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vino in creados %}
+                <tr>
+                <td>{{ vino.nombre }}</td>
+                <td>{{ vino.precio_ars }}</td>
+                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.nota_cata_bodega }}</td>
+                <td>{{ vino.varietal.tipo_uva.nombre }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        {% endif %}
+    </div>
+    <div class="mb-4" style="margin: 3rem">
+        {% if seguidores == 0 %}
+            <h5 class="h6" style="color: #D6B59D">La bodega no tiene seguidores actualmente</h5>
+        {% else %}
+            <h5 class="h4" style="color: #D6B59D">Se ha notificado a {{ seguidores|length }} seguidores</h5>
+        {% endif %}
+    </div>
+    <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'" style="padding: 1.5rem; font-size: 1.5rem; margin-top: 1rem">actualizar otra bodega</button>
+</div>
+{% endblock %}
