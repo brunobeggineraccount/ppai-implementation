@@ -1,11 +1,15 @@
 {% extends "importar_actualizacion/base.html" %}
 {% block content %}
 <div class="container">
+    {% if error %}
+    <h4 class="h4" style="color: #D6B59D">ha habido un error con el sistema de bodegas</h4>
+    {% else %}
+    {% if actualizados == 0 %}
+        <h4 class="h4" style="color: #D6B59D">no hay vinos actualizados</h4>
+    {% else %}
     <div class="mb-4" style="margin: 3rem">
         <h4 class="h4" style="color: #D6B59D">vinos actualizados</h4>
-    {% if actualizados == 0 %}
-        <h5 class="h6" style="color: #D6B59D">no hay vinos actualizados</h5>
-    {% else %}
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -31,10 +35,10 @@
     {% endif %}
     </div>
     <div class="mb-4" style="margin: 3rem">
-        <h4 class="h4" style="color: #D6B59D">vinos creados</h4>
         {% if creados == 0 %}
-        <h5 class="h6" style="color: #D6B59D">no hay vinos creados</h5>
+            <h4 class="h4" style="color: #D6B59D">no hay vinos creados</h4>
         {% else %}
+            <h4 class="h4" style="color: #D6B59D">vinos creados</h4>
             <table class="table table-striped ">
             <thead>
             <tr>
@@ -67,5 +71,6 @@
         {% endif %}
     </div>
     <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'" style="padding: 1.5rem; font-size: 1.5rem; margin-top: 1rem">actualizar otra bodega</button>
+    {% endif %}
 </div>
 {% endblock %}

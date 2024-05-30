@@ -1,9 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-
+from .utils.control.gestor import GestorImportadorBodega
 from .models import *
-from .utils import *
 
 
 # Create your views here.
@@ -38,6 +37,11 @@ def importar_actualizacion(request):
         gestor.tomar_seleccion_bodega(bodega_elegida_nombre)
 
         vinos_clasificados = gestor.determinar_vinos_actualizar()
+        if vinos_clasificados == 400:
+            request.session["status"] = {"status": 400}
+            return redirect(reverse('tomar-seleccion'))
+        else:
+            request.session["status"] = {"status": 200}
 
         id_vinos = gestor.actualizar_o_crear_vinos(vinos_clasificados)
 
@@ -50,6 +54,12 @@ def importar_actualizacion(request):
 
 def resumen(request):
     if request.method == "GET":
+
+        if request.session.get('status')["status"] == 400:
+            return render(request,
+                              template_name='./importar_actualizacion/resumen.html',
+                              context={"error": 400})
+
         context = request.session.get('contexto')
         bodega_elegida = request.session.get("bodega")["bodega"]
 

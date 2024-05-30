@@ -59,7 +59,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada por Edmund James Palmer Norton, un ingeniero inglés.",
             "nombre": "Bodega Norton",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "60"
         },
         "LuigiBosca": {
             "coordenadasUbicacion": "-32.9675, -68.8469",
@@ -67,7 +67,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada en 1901 por Don Leoncio Arizu.",
             "nombre": "Bodega Luigi Bosca",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "90"
         },
         "CatenaZapata": {
             "coordenadasUbicacion": "-32.9675, -68.8469",
@@ -75,7 +75,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada en 1902 por Nicola Catena.",
             "nombre": "Bodega Catena Zapata",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "90"
         },
         "Trapiche": {
             "coordenadasUbicacion": "-32.9675, -68.8469",
@@ -83,7 +83,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada por Tiburcio Benegas en Mendoza.",
             "nombre": "Bodega Trapiche",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "180"
         },
         "Salentein": {
             "coordenadasUbicacion": "-32.9675, -68.8469",
@@ -91,7 +91,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada en 1992 en el Valle de Uco, Mendoza.",
             "nombre": "Bodega Salentein",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "30"
         },
         "Zuccardi": {
             "coordenadasUbicacion": "-32.9675, -68.8469",
@@ -99,7 +99,7 @@
             "fechaUltimaActualizacion": "23-05-2024",
             "historia": "Fundada por Alberto Zuccardi en Mendoza.",
             "nombre": "Bodega Zuccardi",
-            "periodoActualizacion": "Anual"
+            "periodoActualizacion": "30"
         }
     },
     "maridaje": {

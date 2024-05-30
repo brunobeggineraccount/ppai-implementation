@@ -1,7 +1,7 @@
 {% extends "importar_actualizacion/base.html" %}
 {% block content %}
-    <p class="funcionamiento">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus cupiditate iste esse eveniet quasi tempora, nemo illo, ipsum quam distinctio aperiam id fuga facilis? Fugiat rerum beatae voluptates facere magnam.</p>
+    <p class="funcionamiento">Se importará información de nuevos vinos o actualizaciones desde los sistemas de las bodegas, cuyos datos fueron registrados previamente. <br>Se enviará una notificación a los seguidores de las bodegas</p>
     <div class="container d-flex justify-content-center align-items-center">
-        <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'">Importar actualizaciones</button>
+        <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'" style="margin-top: 5rem">Importar actualizaciones</button>
     </div>
 {% endblock %}
