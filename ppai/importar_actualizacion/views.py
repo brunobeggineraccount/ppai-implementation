@@ -1,8 +1,12 @@
+from typing import List
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .utils.control.gestor import GestorImportadorBodega
 from .models import *
+from .utils.entity.vino import Vino
+from .utils.interfaces.IObservadorNotificaciones import IObservadorNotificaciones
 
 
 # Create your views here.
@@ -54,7 +58,11 @@ def importar_actualizacion(request):
 
 def resumen(request):
     if request.method == "GET":
-
+        from importar_actualizacion.utils.boundary.InterfazNotificacionesPush import InterfazNotificacionesPush
+        from .models import BodegaModel
+        observers: List[IObservadorNotificaciones] = []
+        interfazNotificacionPush = InterfazNotificacionesPush()
+        observers.append(interfazNotificacionPush)
         if request.session.get('status')["status"] == 400:
             return render(request,
                               template_name='./importar_actualizacion/resumen.html',
@@ -62,12 +70,18 @@ def resumen(request):
 
         context = request.session.get('contexto')
         bodega_elegida = request.session.get("bodega")["bodega"]
+        per = BodegaModel.objects.get(nombre=bodega_elegida).periodo_actualizacion
 
         creados, actualizados = [], []
+        vinos: List[str] = []
         for vino_id in context["creados"]:
-            creados.append(VinoModel.objects.get(id=vino_id))
+            vino_model = VinoModel.objects.get(id=vino_id)
+            vinos.append(vino_model.nombre)
+            creados.append(vino_model)
         for vino_id in context["actualizados"]:
-            actualizados.append(VinoModel.objects.get(id=vino_id))
+            vino_model = VinoModel.objects.get(id=vino_id)
+            vinos.append(vino_model.nombre)
+            actualizados.append(vino_model)
 
         context = {"creados": creados, "actualizados": actualizados}
         if not context["creados"]:
@@ -76,8 +90,12 @@ def resumen(request):
             context["actualizados"] = 0
 
         gestor = GestorImportadorBodega()
+        gestor.periodo_actualizacion = per
+        gestor.informacion_vinos_importada = vinos
         gestor.bodega_elegida = bodega_elegida
         gestor.buscar_seguidores_bodega()
+        gestor.suscribir(observers)
+        gestor.notificar()
         context["seguidores"] = gestor.enofilos_seguidores_bodega
         if not context["seguidores"]:
             context["seguidores"] = 0

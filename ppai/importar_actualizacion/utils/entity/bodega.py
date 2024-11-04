@@ -18,7 +18,7 @@ class Bodega:
         self.fecha_ultima_actualizacion = fecha_ultima_actualizacion
         self.historia = historia
         self.nombre = nombre
-        self.periodo_actualizacion = periodo_actualizacion
+        self.periodo_actualizacion: int = periodo_actualizacion
         self.vinos = vinos
 
     def tenes_este_vino(self, vino_actualizacion: list):

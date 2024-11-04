@@ -1,5 +1,5 @@
 import datetime
-from typing import Union
+from typing import Union, List
 import json
 import os
 import django
@@ -8,24 +8,44 @@ from ..entity.enofilo import Enofilo
 from ..entity.maridaje import Maridaje
 from ..entity.tipo_uva import TipoUva
 from ..entity.vino import Vino
+from ..interfaces.ISujetoNotificacion import ISujetoNotificacion
+from ..interfaces.IObservadorNotificaciones import IObservadorNotificaciones
 from ...models import *
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', os.path.join('../ppai/settings.py'))
 django.setup()
 
 
-class GestorImportadorBodega:
+class GestorImportadorBodega(ISujetoNotificacion):
     def __init__(self, bodega_elegida=None, bodegas=None, enofilos_seguidores_bodega=None,
-                 informacion_vinos_importada=None, maridajes=None,
-                 tipos_uva=None):
+                 informacion_vinos_importada=None, maridajes=None, tipos_uva=None):
+        super().__init__()
         if bodegas is None:
             bodegas = []
         self.bodega_elegida = bodega_elegida
+        self.periodo_actualizacion = None
         self.bodegas = bodegas
         self.enofilos_seguidores_bodega = enofilos_seguidores_bodega
-        self.informacion_vinos_importada = informacion_vinos_importada
+        self.informacion_vinos_importada: List[str] = informacion_vinos_importada
         self.maridajes = maridajes
         self.tipos_uva = tipos_uva
+
+    def notificar(self):
+        for obs in self.observadores:
+            obs.actualizar(
+                nombreBodega=self.bodega_elegida,
+                infoVinosImportados=self.informacion_vinos_importada,
+                periodoActualizacion=self.periodo_actualizacion
+            )
+
+    def suscribir(self, observador: List[IObservadorNotificaciones]):
+        if observador:
+            for obs in observador:
+                self.observadores.append(obs)
+
+    def quitar(self, observador: List[IObservadorNotificaciones]):
+        for obs in observador:
+            self.observadores.remove(obs)
 
     def buscar_bodegas_actualizar(self):
         self.bodegas = []
