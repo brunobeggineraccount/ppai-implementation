@@ -100,6 +100,8 @@ def resumen(request):
         if not context["seguidores"]:
             context["seguidores"] = 0
 
+        context["patron_cumplido"] = int(gestor.patron_cumplido)
+
         return render(request,
                       template_name='./importar_actualizacion/resumen.html',
                       context=context)

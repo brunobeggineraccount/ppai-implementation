@@ -29,14 +29,20 @@ class GestorImportadorBodega(ISujetoNotificacion):
         self.informacion_vinos_importada: List[str] = informacion_vinos_importada
         self.maridajes = maridajes
         self.tipos_uva = tipos_uva
+        self.patron_cumplido: bool = False
 
     def notificar(self):
-        for obs in self.observadores:
-            obs.actualizar(
-                nombreBodega=self.bodega_elegida,
-                infoVinosImportados=self.informacion_vinos_importada,
-                periodoActualizacion=self.periodo_actualizacion
-            )
+        try:
+            for obs in self.observadores:
+                obs.actualizar(
+                    nombreBodega=self.bodega_elegida,
+                    infoVinosImportados=self.informacion_vinos_importada,
+                    periodoActualizacion=self.periodo_actualizacion
+                )
+            self.patron_cumplido = True
+        except Exception as e:
+            pass
+
 
     def suscribir(self, observador: List[IObservadorNotificaciones]):
         if observador:

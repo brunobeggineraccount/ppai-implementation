@@ -1,6 +1,20 @@
 {% extends "importar_actualizacion/base.html" %}
 {% block content %}
 <div class="container">
+    {% if patron_cumplido == 1 %}
+        <div class="alert alert-important alert-success alert-dismissible" role="alert">
+                      <div class="d-flex">
+                        <div>
+                          <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon alert-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                        </div>
+                        <div>
+                            El patron observer ha notificado con exito!
+                        </div>
+                      </div>
+                      <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+                    </div>
+            {% endif %}
     {% if error %}
     <h4 class="h4" style="color: #D6B59D">ha habido un error con el sistema de bodegas, <br> intenta de nuevo en unos minutos...</h4>
         <button class="custom-button" onclick="window.location.href='{% url "index" %}'" style="padding: 1.5rem; font-size: 1.5rem; margin-top: 1rem">volver a la pagina principal</button>
@@ -9,6 +23,7 @@
         <h4 class="h4" style="color: #D6B59D">no hay vinos actualizados</h4>
     {% else %}
     <div class="mb-4" style="margin: 3rem">
+        
         <h4 class="h4" style="color: #D6B59D">vinos actualizados</h4>
 
         <table class="table table-striped">
@@ -73,5 +88,4 @@
     </div>
     <button class="custom-button" onclick="window.location.href='{% url "importar-actualizacion" %}'" style="padding: 1.5rem; font-size: 1.5rem; margin-top: 1rem">actualizar otra bodega</button>
     {% endif %}
-</div>
 {% endblock %}
